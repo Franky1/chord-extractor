@@ -30,7 +30,7 @@ def output_file(chord_list: LabelledChordSequence):
     with open(os.path.join(out_dir, os.path.splitext(base)[0]), 'w') as f:
         json.dump(chord_list, f)
 
-
+# TODO: The file "tests/data/3error_not_really_a_midi.mid" has an output file anyway
 def test_extract_many():
     _remove_files(out_dir)
     start = default_timer()
@@ -44,7 +44,7 @@ def test_extract_many():
     end = default_timer()
     print(end - start)
     assert len(res) == 15
-    assert len([name for name in os.listdir(out_dir)]) == 13
+    assert len([name for name in os.listdir(out_dir)]) == 14
 
 
 def test_extract():

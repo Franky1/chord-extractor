@@ -1,8 +1,7 @@
-name: Release Python Package
+name: Test Release Python Package to test.pypi.org
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -32,7 +31,7 @@ jobs:
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
         python setup.py sdist bdist_wheel
-        twine upload dist/*
+        twine upload --repository testpypi dist/*
     - name: Deploy docs to GitHub pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:

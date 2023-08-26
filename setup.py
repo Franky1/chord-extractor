@@ -8,7 +8,7 @@ with open('chord_extractor/version.py') as fp:
     exec(fp.read(), version)
 
 setuptools.setup(
-    name="chord-extractor",
+    name="chord-extractor-vamphost",
     version=version['__version__'],
     author="Oliver Holloway",
     author_email="oholloway.consulting@gmail.com",
@@ -22,9 +22,9 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6,<3.10',
+    python_requires='>=3.8',
     install_requires=[
-        'librosa', 'vamp'
+        'vamphost', 'librosa'
     ],
     package_data={'chord_extractor': ['_lib/nnls-chroma.so']}
 )
